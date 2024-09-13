@@ -1,0 +1,42 @@
+<form #form="ngForm" (ngSubmit)="onFormSubmit(form)" class="row g-3">
+  <div class="col-auto">
+    <input type="text" name="name" required class="form-control" placeholder="Nombre" ngModel>
+  </div>
+  <div class="col-auto">
+    <input type="text" name="image" required class="form-control" placeholder="Imagen" ngModel>
+  </div>
+  <div class="col-auto">
+    <input type="text" name="description" required class="form-control" placeholder="Descripción" ngModel>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">
+      Agregar
+    </button>
+  </div>
+  <div *ngIf="form.submitted && !form.valid" class="alert alert-danger" role="alert">
+    Datos incompletos
+  </div>
+</form>
+
+<div *ngIf="isEditModalOpen" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeEditModal()">&times;</span>
+    <h2>Editar Show</h2>
+    <form #editForm="ngForm" (ngSubmit)="onEditSubmit(editForm)" class="row g-3">
+      <div class="col-auto">
+        <input type="text" name="name" required class="form-control" placeholder="Nombre" [(ngModel)]="currentItem.name" ngModel>
+      </div>
+      <div class="col-auto">
+        <input type="text" name="image" required class="form-control" placeholder="Imagen" [(ngModel)]="currentItem.image" ngModel>
+      </div>
+      <div class="col-auto">
+        <input type="text" name="description" required class="form-control" placeholder="Descripción" [(ngModel)]="currentItem.description" ngModel>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">
+          Autorizar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

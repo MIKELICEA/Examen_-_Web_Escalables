@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;" [ngClass]="{'selected': isSelected}">
+  <img [src]="show.image" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p (click)="onDeleteCard()" style="float: right; cursor: pointer;">x</p>
+    <h5 class="card-title">{{show.name}}</h5>
+    <p class="card-text">{{show.description}}</p>
+    <button (click)="changeSelected()" class="btn btn-primary">
+      {{ isSelected ? "Deseleccionar" : "Seleccionar" }}
+    </button>
+    <button (click)="editItem(show)" class="btn btn-secondary" style="margin-top: 10px;">
+      Editar
+    </button>
+  </div>
+</div>
